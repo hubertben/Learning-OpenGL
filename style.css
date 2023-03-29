@@ -16,6 +16,10 @@ body{
     margin: 0 auto;
     display: block;
     background-color: black;
+
+    position: fixed;
+    top: 10px;
+    left: 10px;
 }
 
 #control {
@@ -23,11 +27,15 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
+
+    position: absolute;
+    top: 50px;
+    right: 50px;
 }
 
 #control > *{
     /* padding: 10px 20px; */
-    font-size: 32px;
+    font-size: 24px;
     padding: 10px 0px;
 }
 
@@ -41,8 +49,56 @@ body{
     border-radius: 0px;
 }
 
-#refresh {
-    padding: 0px 20px;
+.mainButton {
     margin: 5px 0px;
+    width: 100%;
 }
 
+
+.trailBlock {
+
+    background-color: #9d9d9d;
+    border: 3px solid #d1d1d1;
+    border-radius: 5px;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    margin: 10px 0px;
+}
+
+.trailBlock > * {
+    padding: 5px 10px;
+}
+
+.trailBlock > #length {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.box {
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    font-size: 24px; 
+}
+
+
+
+.deleteButton {
+    width: 90%;
+    height: 50px;
+    font-size: 24px;
+    background-color: #c44234;
+    color: #fff;
+    border: 2px solid #9a3125;
+    border-radius: 3px;
+    margin: 0px auto;
+}

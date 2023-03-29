@@ -1,9 +1,6 @@
 
 let STARS = [];
 
-
-
-
 class Galaxy {
 
     constructor(numStars, dx, dy){
@@ -12,6 +9,7 @@ class Galaxy {
         this.dy = dy;
 
         this.STARS = [];
+        this.AMBIENT_STARS = [];
 
         this.xminBound = -100;
         this.xmaxBound = CANVASWIDTH + 100;
@@ -24,7 +22,7 @@ class Galaxy {
 
     build () {
         this.generateStars();
-        this.generateAmbientStars();
+        this.generateAmbientStars(this.numStars);
     }
 
 
@@ -37,9 +35,9 @@ class Galaxy {
             let y = Math.random() * (this.ymaxBound - this.yminBound) + this.yminBound;
             let r = mapValue(Math.random(), 0, 1, this.radiusminBound, this.radiusmaxBound);
             
-            let __color__1 = new COLOR(0, 0, 0).randomColor();
-            let __color__2 = new COLOR(0, 0, 0).randomColor();
-            let __color__3 = new COLOR(0, 0, 0).randomColor();
+            // let __color__1 = new COLOR(0, 0, 0).randomColor();
+            // let __color__2 = new COLOR(0, 0, 0).randomColor();
+            // let __color__3 = new COLOR(0, 0, 0).randomColor();
             
             let STAR = new Star(x, y, r, new COLOR(1, 1, 1));
 
@@ -47,22 +45,29 @@ class Galaxy {
             // STAR.addTrail(400, r * 1    , this.dx, this.dy, {"start":0.5  , "end":0}, true, new COLOR(64, 137, 63));
             // STAR.addTrail(100, r / 2    , this.dx, this.dy, {"start":1.0  , "end":1}, true, new COLOR(1, 1, 1));
             
-            STAR.addTrail(700, r * 2    , this.dx, this.dy, {"start":.25  , "end":0}, true, __color__1);
-            STAR.addTrail(400, r * 1    , this.dx, this.dy, {"start":0.5  , "end":0}, true, __color__2);
-            STAR.addTrail(100, r / 2    , this.dx, this.dy, {"start":1.0  , "end":1}, true, __color__3);
+            // STAR.addTrail(700, r * 2    , this.dx, this.dy, {"start":.25  , "end":0}, true, __color__1);
+            // STAR.addTrail(400, r * 1    , this.dx, this.dy, {"start":0.5  , "end":0}, true, __color__2);
+            // STAR.addTrail(100, r / 2    , this.dx, this.dy, {"start":1.0  , "end":1}, true, __color__3);
             
+            // STAR.addTrail(700, r * 2    , this.dx, this.dy, {"start":.2  , "end":.1}, true, new COLOR(93, 78, 96));
+            // STAR.addTrail(400, r * 1.5  , this.dx, this.dy, {"start":.4  , "end":.2}, true, new COLOR(130, 108, 127));
+            // STAR.addTrail(700, r        , this.dx, this.dy, {"start":.6  , "end":.3}, true, new COLOR(168, 143, 172));
+            // STAR.addTrail(400, r / 1.5  , this.dx, this.dy, {"start":.8  , "end":.4}, true, new COLOR(212, 178, 216));
+            // STAR.addTrail(100, r / 2    , this.dx, this.dy, {"start":1.  , "end":.5}, true, new COLOR(255, 197, 58));
+
             this.STARS.push(STAR);
         }
 
     }
 
-    generateAmbientStars(count = -1){
+    generateAmbientStars(){
+    
+        let count = this.numStars;
+        this.AMBIENT_STARS = [];
         
-        if (count == -1) {
-            count = this.numStars;
-        }
-
         for (let i = 0; i < count; i++) {
+
+            // console.log("ambient star");
         
             let x = Math.random() * CANVASWIDTH;
             let y = Math.random() * CANVASHEIGHT;
@@ -73,7 +78,7 @@ class Galaxy {
             let __color__ = new COLOR(col, col, col);
             let STAR = new Star(x, y, r, __color__);
 
-            this.STARS.push(STAR);
+            this.AMBIENT_STARS.push(STAR);
         }
     }
 }

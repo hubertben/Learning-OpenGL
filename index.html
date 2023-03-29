@@ -18,7 +18,7 @@
 
   <div id="control">
 
-    <button id="refresh" onclick="refreshStars()">Refresh</button>
+    <button id="refresh" class="mainButton" onclick="refreshStars()">Refresh</button>
 
     <div id="dir">
     <label for="dir">Direction</label>
@@ -35,23 +35,35 @@
         </select>
     </div>
 
-
-
-    <div id="color1">
-      <label for="color1">Color 1</label>
-      <input type="color" id="color1" name="color1" value="#000000" onchange="setup()">
+    <div id="numUnits">
+        <label for="numUnits">Number of Units</label>
+        <input type="number" id = "numUnitsBox" class="box" name="length" min="0" max="1000" onchange="changeNumUnits()">
     </div>
-    <div id="color2">
-      <label for="color2">Color 2</label>
-      <input type="color" id="color2" name="color2" value="#0000ff" onchange="setup()">
+
+    <div id="maxStarSize">
+        <label for="numUnits">Max Star Size</label>
+        <input type="number" id = "maxStarSizeBox" class="box" name="length" min="0" max="1000" onchange="changeMaxStarSize()">
     </div>
+
+    <!-- add a line break -->
+    <div class="lineBreak" style="padding:0px; margin:10px 0px; height: 0px; width: 100%; border: 2px solid #d1d1d1"></div>
+
     
+    
+    
+    <button id="addTrail" class="mainButton" onclick="addTrail()">Add New Trail</button>
+    <br>
+    
+    
+
+
   </div>
 
 
   <script src="functions.js"></script>
   <script src="control.js"></script>
   <script src="star.js"></script> 
+  <script src="trailManager.js"></script> 
   <script src="galaxy.js"></script>
   <script src="script.js"></script>
 

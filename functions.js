@@ -100,7 +100,7 @@ function resizeCanvas(width = null, height = null) {
     if (width == null || height == null) {
         c.width = window.innerWidth - 100 - (cont.clientWidth);
         CANVASWIDTH = c.width
-        c.height = window.innerHeight - 100;
+        c.height = window.innerHeight - 30;
         CANVASHEIGHT = c.height        
     }else{
         c.width = width;

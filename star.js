@@ -1,3 +1,5 @@
+
+
 class Star {
 
     constructor(x, y, r, color) {
@@ -23,9 +25,24 @@ class Star {
 
     }
 
-    addTrail(trailLength, trailWidth, dx, dy, alphaRange = {}, bloom = false, color = this.color) {
-        let trail = new Trail(this, trailLength, trailWidth, dx, dy, alphaRange, bloom);
-        trail.color = color;
+    addTrailProfile(profile) {
+
+        // console.log(profile);
+
+        let trail = new Trail(
+            profile.length,
+            profile.radius * this.r,
+            profile.dx,
+            profile.dy,
+            profile.alphaRange,
+            profile.bloom,
+            profile.color
+        );
+
+        trail.assignStar(this);
+
+        // console.log(trail);
+
         this.trails.push(trail);
     }
 
@@ -65,6 +82,7 @@ function trailShape(trail) {
 
 
 function lineAlphaGradient(x, y, x2, y2, color, startAlpha = 1, endAlpha = 0) {
+
     let gradient = ctx.createLinearGradient(x, y, x2, y2);
 
     startA = (parseInt(startAlpha * 255)).toString(16)
@@ -101,17 +119,21 @@ function findNormalVector(x, y, x2, y2) {
 
 class Trail {
 
-    constructor(star, trailLength, trailWidth, dx, dy, alphaRange = {}, bloom = false) {
-        this.star = star;
+    constructor(trailLength, trailWidth, dx, dy, alphaRange = {}, bloom = false, color = this.star.color) {
+        this.star = null;
         this.trailLength = trailLength;
         this.trailWidth = trailWidth;
-        this.sx = star.x;
-        this.sy = star.y;
         this.dx = dx;
         this.dy = dy;
         this.alphaRange = alphaRange;
         this.bloom = bloom;
-        this.color = this.star.color
+        this.color = color;
+    }
+
+    assignStar(star) {
+        this.star = star;
+        this.sx = star.x;
+        this.sy = star.y;
     }
 
     draw() {
