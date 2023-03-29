@@ -16,6 +16,43 @@
     <canvas id="canvas"></canvas>
   </div>
 
+  <div id="control">
+
+    <button id="refresh" onclick="refreshStars()">Refresh</button>
+
+    <div id="dir">
+    <label for="dir">Direction</label>
+        <select id="direction" name="direction" onchange="changeDirection()">
+            <option value="0, 0">None</option>
+            <option value="0, -1">Top</option>
+            <option value="0, 1">Bottom</option>
+            <option value="-1, 0">Left</option>
+            <option value="1, 0">Right</option>
+            <option value="-1, -1">Top Left</option>
+            <option value="1, -1">Top Right</option>
+            <option value="-1, 1">Bottom Left</option>
+            <option value="1, 1">Bottom Right</option>
+        </select>
+    </div>
+
+
+
+    <div id="color1">
+      <label for="color1">Color 1</label>
+      <input type="color" id="color1" name="color1" value="#000000" onchange="setup()">
+    </div>
+    <div id="color2">
+      <label for="color2">Color 2</label>
+      <input type="color" id="color2" name="color2" value="#0000ff" onchange="setup()">
+    </div>
+    
+  </div>
+
+
+  <script src="functions.js"></script>
+  <script src="control.js"></script>
+  <script src="star.js"></script> 
+  <script src="galaxy.js"></script>
   <script src="script.js"></script>
 
 </body>

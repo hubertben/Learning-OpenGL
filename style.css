@@ -4,6 +4,11 @@ body{
     text-align: center;
     color:white;
     font-family: Arial;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #canvas {
@@ -12,3 +17,32 @@ body{
     display: block;
     background-color: black;
 }
+
+#control {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+#control > *{
+    /* padding: 10px 20px; */
+    font-size: 32px;
+    padding: 10px 0px;
+}
+
+#direction {
+    width: 200px;
+    height: 40px;
+    border: 2px solid #999;
+    font-size: 24px;
+    color: #000000;
+    background-color: #eee;
+    border-radius: 0px;
+}
+
+#refresh {
+    padding: 0px 20px;
+    margin: 5px 0px;
+}
+
